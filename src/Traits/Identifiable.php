@@ -12,12 +12,12 @@ trait Identifiable
 
     public function identifiableName() : string
     {
-        return $this->name ?? $this->id;
+        return $this->name ?? $this->getKey();
     }
 
     public function identifiableLink() : string
     {
-        return backpack_url(strtolower(class_basename(static::class)))."/{$this->id}/show";
+        return backpack_url(strtolower(class_basename(static::class)))."/{$this->getKey()}/show";
     }
 
     public function getIdentifiableNameAttribute()
